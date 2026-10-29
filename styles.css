@@ -1,0 +1,64 @@
+/*  VARIABLES GLOBALES  */
+:root {
+  /* Colores */
+    --color-fondo: #b5b3b0;
+    --color-texto: #222222;
+    --color-borde: #222222; 
+    --color-sombra: #222222;
+}
+
+/* RESETEO BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ESTILOS DEL LIENZO */
+body {
+    background-color: var(--color-fondo); 
+    color: var(--color-texto);
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+header {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+header div {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+header img {
+    width: 400px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--color-texto);
+    padding: 10px 20px;
+    border: 2px solid var(--color-borde);
+    border-radius: 8px;
+    box-shadow: 4px 4px 0px var(--color-sombra);
+}
+
+nav a:hover {
+    box-shadow: 0px 0px 0px var(--color-sombra);
+    transform: translate(4px, 4px);
+}
