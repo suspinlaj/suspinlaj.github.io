@@ -131,9 +131,41 @@ article img {
     grid-template-columns: 1fr 1fr;
 }
 
+
+/* --- SKILLS --- */
+
+.galeria-skills {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#skills article {
+    background-color: #ffffff;
+    border: 2px solid var(--color-borde);
+    border-radius: 8px;
+    box-shadow: 8px 8px 0px var(--color-sombra);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#skills ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
 /* --- ADAPTACIÓN A MÓVILES (RESPONSIVE) --- */
 @media (max-width: 768px) {
     .galeria {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .galeria, .galeria-skills {
         grid-template-columns: 1fr;
     }
 }
