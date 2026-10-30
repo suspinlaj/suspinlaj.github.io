@@ -157,15 +157,32 @@ article img {
     margin: 0;
 }
 
+/* --- SOBRE MÍ --- */
+.contenedor-sobremi {
+    display: flex;
+    gap: 40px;
+}
+
+.contenedor-sobremi div {
+    flex: 1;
+}
+
+#sobremi ul {
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
 /* --- ADAPTACIÓN A MÓVILES (RESPONSIVE) --- */
+
 @media (max-width: 768px) {
-    .galeria {
+    .galeria, .galeria-skills {
         grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 768px) {
-    .galeria, .galeria-skills {
-        grid-template-columns: 1fr;
+    .contenedor-sobremi {
+        flex-direction: column;
     }
 }
