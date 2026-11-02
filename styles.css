@@ -7,27 +7,28 @@
     --color-sombra: #222222;
 }
 
-/* RESETEO BASE */
+/* Eliminar márgenes  */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; 
 }
 
+/* Scroll suave */
 html {
     scroll-behavior: smooth;
 }
 
-/* ESTILOS DEL LIENZO */
+/* Estilos página */
 body {
     background-color: var(--color-fondo); 
     color: var(--color-texto);
     font-family: system-ui, -apple-system, sans-serif;
 }
 
-/* CABEZERA */
+/* --- PORTADA --- */
 header {
-    min-height: 100vh;
+    min-height: 100vh; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -35,21 +36,40 @@ header {
     gap: 24px;
 }
 
+/* Botones Modo oscuro e idioma */
 header div {
-    position: absolute;
+    position: absolute; 
     top: 20px;
     right: 20px;
 }
 
+/* Foto perfil */
 header img {
-    width: 400px;
+    width: 320px;
+    aspect-ratio: 1 / 1; 
+    object-fit: cover; 
+    border-radius: 50%;
+    border: 3px solid var(--color-borde);
+    box-shadow: 8px 8px 0px var(--color-sombra);
 }
 
+header h1 {
+    font-size: 32px;
+    text-align: center;
+}
+
+header p {
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Barra de navegación */
 nav {
     display: flex;
     gap: 20px;
 }
 
+/* Botones de navegación */
 nav a {
     text-decoration: none;
     color: var(--color-texto);
@@ -59,21 +79,28 @@ nav a {
     box-shadow: 4px 4px 0px var(--color-sombra);
 }
 
+/* Animación al pasar el ratón por los botones del menú */
 nav a:hover {
     box-shadow: 0px 0px 0px var(--color-sombra);
-    transform: translate(4px, 4px);
+    transform: translate(4px, 4px); 
+}
+
+/* --- ESTILOS GENERALES DE SECCIONES --- */
+section {
+    padding: 100px 20px;
+    max-width: 850px;
+    margin: 0 auto; 
 }
 
 /* --- PROYECTOS --- */
 
-/* contenido de todas las secciones */
-section {
-    padding: 100px 20px;
-    max-width: 1000px;
-    margin: 0 auto;
+.galeria {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: 1fr 1fr; 
 }
 
-/*  proyectos*/
+/* Diseño tarjeta blanca de cada proyecto */
 #proyectos article {
     background-color: #ffffff;
     border: 2px solid var(--color-borde);
@@ -85,21 +112,26 @@ section {
     gap: 16px;
 }
 
-/* fotos de los proyectos */
+/* Fotos cuadradas dentro de las tarjetas de proyecto */
 article img {
-    max-width: 100%;
-    border-radius: 8px;
+    width: 100%;                
+    aspect-ratio: 1 / 1;       
+    object-fit: cover;          
+    border-radius: 8px;        
+    border: 2px solid var(--color-borde); 
 }
 
+/* Contenedor de las etiquetas (tecnologías) */
 #proyectos article ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
     display: flex;
     gap: 10px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
 }
 
+/* Diseño de cada etiqueta */
 #proyectos article li {
     border: 1px solid var(--color-borde);
     background-color: var(--color-fondo);
@@ -108,38 +140,47 @@ article img {
     font-size: 14px;
 }
 
+/* Contenedor de enlaces */
 #proyectos article div {
     display: flex;
     gap: 16px;
     justify-content: flex-start;
 }
 
+/* Estilo de enlaces de proyecto */
 #proyectos article div a {
     text-decoration: none;
     color: var(--color-texto);
     font-weight: bold;
 }
 
+/* Subrayar  al pasar el ratón */
 #proyectos article div a:hover {
     text-decoration: underline;
     text-underline-offset: 4px;
 }
 
-.galeria {
-    display: grid;
-    gap: 32px;
-    grid-template-columns: 1fr 1fr;
+/* --- BOTÓN VER MÁS PROYECTOS --- */
+.ver-mas-proyectos {
+    text-align: center;
+    margin-top: 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
 }
 
 
 /* --- SKILLS --- */
 
+/* Cuadrícula habilidades */
 .galeria-skills {
     display: grid;
     gap: 24px;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(6,1fr); 
 }
 
+/*  tarjeta blanca skills */
 #skills article {
     background-color: #ffffff;
     border: 2px solid var(--color-borde);
@@ -149,15 +190,24 @@ article img {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    grid-column: span 2;
 }
 
+#skills article:nth-child(4) {
+    grid-column: 2 / span 2;
+}
+
+/* Eliminar sangría de listas en skills */
 #skills ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
+
 /* --- SOBRE MÍ --- */
+
+/* Dos columnas para sobre mi */
 .contenedor-sobremi {
     display: flex;
     gap: 40px;
@@ -167,14 +217,51 @@ article img {
     flex: 1;
 }
 
+/* --- MI CAMINO --- */
+
 #sobremi ul {
     gap: 16px;
     display: flex;
     flex-direction: column;
 }
 
-/* --- CONTACTO --- */
+/* sub-puntos dentro de cada experiencia */
+#sobremi ul ul { 
+    margin-top: 8px; 
+    padding-left: 20px; 
+    list-style-type: disc; 
+}
 
+/*  Dibujar línea recta vertical principal */
+ul.timeline {
+    list-style-type: none; 
+    border-left: 3px solid var(--color-borde); 
+    padding-left: 24px;
+    margin-left: 12px; 
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* Referencia para colocar el punto decorativo */
+ul.timeline > li {
+    position: relative; 
+}
+
+/* Puntos circulares sobre la línea vertical */
+ul.timeline > li::before {
+    content: ""; 
+    position: absolute;
+    left: -35.5px; 
+    top: 2px; 
+    width: 14px;
+    height: 14px;
+    background-color: var(--color-fondo);
+    border: 3px solid var(--color-borde); 
+    border-radius: 50%; 
+}
+
+/* --- CONTACTO --- */
 #contacto { 
     text-align: center;
     display: flex;
@@ -192,25 +279,35 @@ article img {
     box-shadow: 4px 4px 0px var(--color-sombra);
 }
 
+/* Animación de hundimiento del botón */
 .boton-principal:hover {
     box-shadow: 0px 0px 0px var(--color-sombra);
     transform: translate(4px, 4px);
 }
+
 
 /* --- FOOTER --- */
 footer {
     text-align: center;
     padding: 40px;
 }
+
 /* --- ADAPTACIÓN A MÓVILES (RESPONSIVE) --- */
 
 @media (max-width: 768px) {
-    .galeria, .galeria-skills {
+    .galeria {
         grid-template-columns: 1fr;
     }
-}
+    
+    .galeria-skills {
+        grid-template-columns: 1fr;
+    }
 
-@media (max-width: 768px) {
+    #skills article, #skills article:nth-child(4) {
+        grid-column: span 1;
+        grid-column-start: auto;
+    }
+
     .contenedor-sobremi {
         flex-direction: column;
     }

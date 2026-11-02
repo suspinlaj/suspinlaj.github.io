@@ -4,22 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Frontend - Susana Pineros Lajara</title>
+    <!-- Conexión a tu hoja de estilos CSS -->
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+    <!-- PORTADA -->
     <header>
+        <!-- Botones superiores -->
         <div>
-            <button type="button">🌙</button>
+            <button type="button" id="btn-tema">🌙</button>
             <button type="button">ES</button>
         </div>
 
+        <!-- Foto de perfil circular -->
         <figure>
-            <img src="./assets/images/fotoprueba.jpeg" alt="Imagen portada cv">
+            <img src="./assets/images/fotocv.jpg" alt="Foto CV Susana Pineros">
         </figure>
 
+        <!-- Presentación -->
         <h1>Hola! Soy Susana Pineros Lajara</h1>
-        <p>Desarrolladora Frontend con alma de ilustradora. <br> Transformo ideas y código en experiencias visuales únicas.</p>
+        <p>Desarrolladora multiplataforma con formación en diseño digital. <br> Combino diseño e ilustración con programación para crear proyectos creativos y funcionales.</p>
 
+        <!-- Navegaciónn -->
         <nav>
             <a href="#proyectos">Proyectos</a>
             <a href="#skills">Skills</a>
@@ -27,56 +33,96 @@
             <a href="#contacto">Contacto</a>
         </nav>
     </header>
+
     <main>
-        <!-- SECCIÓN DE PROYECTOS -->
+        <!-- PROYECTOS  -->
         <section id="proyectos">
             <h2>Proyectos Seleccionados 🎨</h2>
 
+            <!-- Cuadrícula de proyectos principales -->
             <div class="galeria">
-                <!-- Proyecto 1 -->
-            <article>
-                <!-- Foto del proyecto-->
-                <img src="./assets/images/fotoprueba.jpeg" alt="Captura del Proyecto 1">
-                <h3>★ Proyecto Estrella (Angular)</h3>
-                <p>Web interactiva con mis propias ilustraciones integradas. Gestión de estado y conexión a API.</p>
                 
-                <!-- Etiquetas de tecnologías -->
-                <ul>
-                    <li>Angular</li>
-                    <li>TypeScript</li>
-                    <li>CSS</li>
-                </ul>
+                <!-- Proyecto 1: Lo que nunca te dije -->
+                <article>
+                    <img src="./assets/images/icon_lqntd.jpg" alt="Captura de Lo que nunca te dije">
+                    <h3>★ Lo que nunca te dije</h3>
+                    <p>Diario personal íntimo, seguro y estético. Aplicación desarrollada en Flutter con integración de servicios en la nube mediante Firebase y optimización de archivos multimedia.</p>
+                    
+                    <ul>
+                        <li>Flutter</li>
+                        <li>Firebase</li>
+                        <li>UI/UX</li>
+                    </ul>
 
-                <!-- Enlaces del proyecto -->
-                <div>
-                    <a href="#" target="_blank">Ver Demo ↗</a>
-                    <a href="https://github.com/suspinlaj" target="_blank">GitHub ↗</a>
-                </div>
-            </article>
+                    <div>
+                        <a href="#" target="_blank">Ver Demo ↗</a>
+                        <a href="https://github.com/suspinlaj/lo-que-nunca-te-dije" target="_blank">GitHub ↗</a>
+                    </div>
+                </article>
 
-            <!-- Proyecto 2 -->
-            <article>
-                <!-- Foto del proyecto-->
-                <img src="./assets/images/fotoprueba.jpeg" alt="Captura del Proyecto 2">
-                <h3>★ Proyecto Galaxia (React)</h3>
-                <p>Aplicación de gestión de tareas con interfaz moderna y experiencia de usuario intuitiva.</p>
-                
-                <!-- Etiquetas de tecnologías -->
-                <ul>
-                    <li>React</li>
-                    <li>JavaScript</li>
-                    <li>CSS</li>
-                </ul>
+                <!-- Proyecto 2: PedrApp -->
+                <article>
+                    <img src="./assets/images/icon_pedrapp.jpg" alt="Captura de PedrApp">
+                    <h3>★ PedrApp</h3>
+                    <p>App personal diseñada a medida para llevar un seguimiento integral de estudio, entrenamientos y localizaciones, adaptándose a necesidades específicas para oposiciones.</p>
+                    
+                    <ul>
+                        <li>Desarrollo Móvil</li>
+                        <li>Lógica de Negocio</li>
+                        <li>UI/UX</li>
+                    </ul>
 
-                <!-- Enlaces del proyecto -->
-                <div>
-                    <a href="#" target="_blank">Ver Demo ↗</a>
-                    <a href="https://github.com/suspinlaj" target="_blank">GitHub ↗</a>
-                </div>
-            </article>
+                    <div>
+                        <a href="#" target="_blank">Ver Demo ↗</a>
+                        <a href="https://github.com/suspinlaj/pedrapp" target="_blank">GitHub ↗</a>
+                    </div>
+                </article>
+
+                <!-- Proyecto 3: Slimash -->
+                <article>
+                    <img src="./assets/images/icon_slimash.jpg" alt="Captura de Slimash">
+                    <h3>★ Slimash</h3>
+                    <p>Juego de reacción con estética pixel art donde hay que poner a prueba los reflejos. Desarrollo enfocado en la inmersión del usuario y detalles visuales propios.</p>
+                    
+                    <ul>
+                        <li>Kotlin</li>
+                        <li>Pixel Art</li>
+                        <li>Multimedia</li>
+                    </ul>
+
+                    <div>
+                        <a href="#" target="_blank">Ver Demo ↗</a>
+                        <a href="https://github.com/suspinlaj/slimash" target="_blank">GitHub ↗</a>
+                    </div>
+                </article>
+
+                <!-- Proyecto 4: GoPack -->
+                <article>
+                    <img src="./assets/images/icon_gopack.jpg" alt="Captura de GoPack">
+                    <h3>★ GoPack</h3>
+                    <p>App de gestión de paquetes para viajeros, permitiendo el seguimiento en tiempo real de los envíos y la optimización de rutas de entrega.</p>
+                    
+                    <ul>
+                        <li>Desarrollo Móvil</li>
+                        <li>Lógica matricial</li>
+                        <li>Ilustración</li>
+                    </ul>
+
+                    <div>
+                        <a href="#" target="_blank">Ver Demo ↗</a>
+                        <a href="https://github.com/suspinlaj/tres-en-raya" target="_blank">GitHub ↗</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Ver más proyectos en GitHub -->
+            <div class="ver-mas-proyectos">
+                <p>¿Quieres ver más? Tengo otras aplicaciones móviles, herramientas de escritorio y maquetaciones web.</p>
+                <a href="https://github.com/suspinlaj" target="_blank" class="boton-principal">Ver todos en GitHub ↗</a>
             </div>
         </section>
 
+        <!-- SKILLS -->
         <section id="skills">
             <h2>Mis Habilidades 🛠️</h2>
 
@@ -84,60 +130,130 @@
                 <article>
                     <h3>FRONTEND</h3>
                     <ul>
-                        <li>HTML5 & CSS3</li>
-                        <li>JavaScript</li>
+                        <li>HTML5, CSS3 & Javascript</li>
                         <li>Angular</li>
+                        <li>Flutter & .NET Maui</li>
                     </ul>
                 </article>
 
                 <article>
-                    <h3>BACKEND</h3>
+                    <h3>BACKEND & BD</h3>
                     <ul>
-                        <li>Java & POO</li>
-                        <li>Express</li>
-                        <li>Python</li>
-                        <li>SQL</li>
+                        <li>Java & Kotlin</li>
+                        <li>C# & Python</li>
+                        <li>Spring Boot & Express</li>
+                        <li>PostgreSQL & SQL</li>
                     </ul>
                 </article>
 
                 <article>
-                    <h3>ARTE & UI</h3>
+                    <h3>QA & TESTING</h3>
                     <ul>
-                        <li>Adobe Illustrator</li>
-                        <li>Adobe Photoshop</li>
-                        <li>Figma</li>
+                        <li>Selenium WebDriver & XPath</li>
+                        <li>Cilantrum & Robot Framework</li>
+                        <li>Cucumber</li>
+                        <li>Page Object Model (POM)</li>
+                    </ul>
+                </article>
+
+                <article>
+                    <h3>DISEÑO Y UI</h3>
+                    <ul>
+                        <li>UI/UX Design</li>
+                        <li>Figma & InDesign</li>
+                        <li>Illustrator & Photoshop</li>
                         <li>Procreate</li>
+                    </ul>
+                </article>
+
+                <article>
+                    <h3>SOFT SKILLS</h3>
+                    <ul>
+                        <li>Creatividad e innovación</li>
+                        <li>Empatía y trato amable</li>
+                        <li>Capacidad organizativa</li>
+                        <li>Resolución ágil de incidencias</li>
                     </ul>
                 </article>
             </div>
         </section>
 
+        <!-- SOBRE MÍ -->
         <section id="sobremi">
             <h2>Sobre mí 🌟</h2>
 
             <div class="contenedor-sobremi">
+                <!-- Columna Izquierda-->
                 <div>
                     <h3>Sobre Mí</h3>
-                    <p>sadfdsgdhfjgkhfdshjgnfcvnbhmjhkuyjgfthdrfcgvhbjhgjfhvgbhgnfcgvnbmhgnfcvhgf</p>
+                    <p>Soy Susana, desarrolladora multiplataforma (DAM) con un perfil que une
+                    lógica y creatividad. Al tener formación previa en ilustración y diseño digital, le
+                    doy mucha importancia a la experiencia de usuario y al diseño visual (UI/UX).
+                    Creo que un buen software no solo debe tener un código robusto por detrás,
+                    sino que debe resultar intuitivo y atractivo para quien lo usa por delante. <br>
+                    Mi base tecnológica principal incluye Java, Kotlin, C# y Flutter. A esto le sumo
+                    mi reciente experiencia laboral como Junior QA Automation en Indra Group,
+                    donde he automatizado pruebas utilizando herramientas como Selenium y
+                    Robot Framework. Haber trabajado en testing me ha enseñado a anticiparme
+                    a los errores y a priorizar la calidad en cada desarrollo. <br>
+                    Aunque acabo de graduarme y estoy en el inicio de mi carrera, soy una
+                    persona que aprende muy rápido y se esfuerza al máximo por sacar los retos
+                    adelante. Busco un equipo con buen ambiente donde pueda compaginar la
+                    programación con mi faceta visual, seguir creciendo profesionalmente y
+                    aportar valor al proyecto desde el primer día.</p>
                 </div>
 
+                <!-- Columna Derecha -->
                 <div>
                     <h3>Mi Camino</h3>
-                    <ul>
-                        <li><strong>2026: Junior QA Automation en Indra</strong></li>
+                    <ul class="timeline">
+                        <li>
+                            <strong>feb. 2026 - jun. 2026: QA Automation Intern | Indra Group</strong>
+                            <ul>
+                                <li>Automatización de flujos de usuario (E2E) mediante Cilantrum (framework Java), Selenium, Cucumber y Robot Framework.</li>
+                                <li>Diseño de código limpio y escalable implementando el patrón Page Object Model (POM).</li>
+                                <li>Resolución de escenarios complejos interactuando con el DOM mediante XPath y Selenium WebDriver.</li>
+                                <li>Inyección de datos masivos (Excel/JSON) para pruebas parametrizadas.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>2024 - 2026: Grado Superior Desarrollo de Aplicaciones Multiplataforma | IES Rey Fernando VI</strong>
+                            <ul>
+                                <li>Desarrollo integral de software móvil (Java/Kotlin), backend (Spring Boot) y de escritorio (.NET MAUI) entre otros frameworks.</li>
+                                <li>Proyecto Final: Diseño visual y desarrollo de aplicación multiplataforma en Flutter.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>2019 - Actualidad: Gestión y Atención al Cliente | Club Tenis Coslada</strong>
+                            <ul>
+                                <li>Gestión organizativa, atención al público y resolución ágil de incidencias (presencial y plataformas digitales).</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>2019 - 2021: Grado Profesional de Ilustración Tradicional y Digital | Arteneo</strong>
+                            <ul>
+                                <li>Especialización en composición visual, diseño gráfico y herramientas de maquetación digital.</li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
         </section>
 
+        <!-- CONTACTO -->
         <section id="contacto">
             <h2>Contacto 📩</h2>
-            <p>¡Estoy abierto a nuevas oportunidades!</p>
+            <p>¡Estoy abierta a nuevas oportunidades!</p>
             <a href="mailto:suspinlaj@gmail.com" class="boton-principal">Envíame un email</a>
         </section>
     </main>
+
+    <!-- FOOTER -->
     <footer>
-        <p>Hecho con mucho ☕, código y dibujos por Susana Pineros</p>
+        <p>Hecho con mucho código y paciencia por Susana Pineros</p>
     </footer>
+
+    <!-- Conexión con js -->
+    <script src="./script.js"></script>
 </body>
 </html>
