@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
+    // --- DATOS DE PROYECTOS ---
     const proyectosData = {
         "pedrapp": {
             titulo: "★ PedrApp",
@@ -69,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // --- ELEMENTOS DEL DOM PRINCIPALES ---
     const tarjetasProyectos = document.querySelectorAll('#proyectos article');
     const modal = document.getElementById('modal-proyecto');
     const modalContenido = document.querySelector('.modal-contenido'); 
@@ -77,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let intervaloSlider; 
 
-    // --- NUEVO: CREAR VENTANA DE ZOOM DINÁMICAMENTE ---
+    // --- VENTANA DE ZOOM ---
     const zoomModal = document.createElement('div');
     zoomModal.id = 'modal-zoom';
     zoomModal.className = 'modal-oculta';
@@ -108,12 +110,12 @@ document.addEventListener('DOMContentLoaded', () => {
     zoomModal.addEventListener('click', (evento) => {
         if (evento.target === zoomModal) cerrarZoom();
     });
-    // ----------------------------------------------------
 
     const abrirModal = (projectId) => {
         const datos = proyectosData[projectId];
         if (!datos) return;
 
+        // Establecer el color de la tarjeta para usarlo en CSS
         modalContenido.style.setProperty('--color-modal-actual', datos.color);
 
         let htmlTags = datos.tecnologias.map(tech => `<li>${tech}</li>`).join('');
@@ -137,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         }
 
+        // Inyección del contenido HTML
         modalCuerpo.innerHTML = `
             <h3>${datos.titulo}</h3>
             <p>${datos.descripcionLarga}</p>
@@ -155,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.classList.add('modal-visible');
         document.body.style.overflow = 'hidden';
 
+        // ---  CARRUSEL ---
         if (datos.capturas && datos.capturas.length > 0) {
             let indiceActual = 0;
             const slidesDOM = modalCuerpo.querySelectorAll('.coverflow-slide');
@@ -170,11 +174,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     let transformacion = `translate(-50%, -50%) `; 
                     
                     if (diferencia === 0) {
+                        // Imagen Central Activa
                         transformacion += `translateX(0px) scale(1.1) rotateY(0deg)`;
                         slide.style.zIndex = 50;
                         slide.style.opacity = 1;
                         slide.style.filter = 'brightness(1)';
                     } else {
+                        // Imágenes Secundarias 
                         const empujeBase = datos.orientacion === "horizontal" ? 170 : 100; 
                         const pushX = direccion * (empujeBase + (absDiferencia * 40)); 
                         const giroY = direccion * -45; 
@@ -203,15 +209,14 @@ document.addEventListener('DOMContentLoaded', () => {
             btnNext.addEventListener('click', () => { pasarSiguiente(); reiniciarAutoplay(); });
             btnPrev.addEventListener('click', () => { pasarAnterior(); reiniciarAutoplay(); });
 
-            // LOGICA ACTUALIZADA DE LOS CLICS
             slidesDOM.forEach((slide, index) => {
                 slide.addEventListener('click', () => {
                     if (indiceActual === index) {
-                        // Si ya está en el centro, abrimos el ZOOM a pantalla completa
+                        // Abrir imagen en Zoom
                         abrirZoom(slide.src, datos.color);
-                        clearInterval(intervaloSlider); // Pausamos el autoplay mientras vemos el zoom
+                        clearInterval(intervaloSlider); 
                     } else {
-                        // Si está en un lado, la traemos al centro
+                        // Traer imagen seleccionada al frente
                         indiceActual = index;
                         actualizarCoverflow();
                         reiniciarAutoplay();
@@ -219,6 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
 
+            // --- AUTOPLAY CARRUSEL ---
             const iniciarAutoplay = () => { intervaloSlider = setInterval(pasarSiguiente, 3000); };
             const reiniciarAutoplay = () => { clearInterval(intervaloSlider); iniciarAutoplay(); };
 
@@ -227,6 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // --- EVENTOS CERRAR MODALES ---
     const cerrarModal = () => {
         clearInterval(intervaloSlider); 
         modal.classList.remove('modal-visible');
@@ -248,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (evento.target === modal) cerrarModal();
     });
 
-    // ACTUALIZADO: Manejar la tecla ESC para cerrar el Zoom o el Modal principal
+    // Accesibilidad Teclado (ESC)
     document.addEventListener('keydown', (evento) => {
         if (evento.key === 'Escape') {
             if (zoomModal.classList.contains('modal-visible')) {

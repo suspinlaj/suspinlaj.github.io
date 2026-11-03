@@ -566,8 +566,8 @@ footer {
 #modal-cuerpo {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra todos los bloques en el medio de la ventana */
-    text-align: center; /* Centra el texto del título y los párrafos */
+    align-items: center; 
+    text-align: center;
     gap: 16px;
 }
 
@@ -586,7 +586,7 @@ footer {
 #modal-cuerpo ul { 
     list-style: none; 
     display: flex; 
-    justify-content: center; /* Centra las etiquetas si ocupan varias líneas */
+    justify-content: center; 
     gap: 8px; 
     flex-wrap: wrap; 
 }
@@ -603,7 +603,7 @@ footer {
 /* Botones */
 .modal-botones { 
     display: flex; 
-    justify-content: center; /* Centra los dos botones */
+    justify-content: center; 
     gap: 16px; 
     margin-top: 16px; 
 }
@@ -627,24 +627,22 @@ footer {
     box-shadow: 0px 0px 0px transparent; 
 }
 
-/* =========================================================
-   EFECTO COVERFLOW 3D (CAPTURAS)*/
+/* --- CAPTURAS --- */
 .coverflow-contenedor {
     position: relative;
     width: 100%;
-    height: 380px; /* Más altura para que la foto pueda crecer en el centro */
+    height: 380px;
     margin: 20px 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Hemos eliminado el overflow: hidden; que cortaba las fotos */
 }
 
 .coverflow-track {
     position: relative;
     width: 100%;
     height: 100%;
-    perspective: 1000px; /* Da la profundidad 3D */
+    perspective: 1000px; 
     transform-style: preserve-3d;
 }
 
@@ -664,10 +662,10 @@ footer {
     transform: translate(-50%, -50%); 
 }
 
-/* NUEVA REGLA PARA PROYECTOS DE PC */
+/* PROYECTOS DE PC */
 .coverflow-slide.horizontal {
-    width: 320px; /* Más ancha */
-    height: 180px; /* Más bajita (formato 16:9) */
+    width: 320px; 
+    height: 180px; 
 }
 
 /* Botones de control del slider */
@@ -682,7 +680,7 @@ footer {
     width: 40px;
     height: 40px;
     cursor: pointer;
-    z-index: 100; /* Siempre por encima de las fotos */
+    z-index: 100;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -701,11 +699,9 @@ footer {
     box-shadow: 0px 0px 0px transparent;
 }
 
-/* =========================================================
-   MODAL DE ZOOM (IMAGEN AMPLIADA)
-========================================================= */
+/* --- IMAGEN AMPLIADA --- */
 #modal-zoom {
-    z-index: 2000; /* Por encima del modal principal */
+    z-index: 2000; 
 }
 
 .zoom-contenido {
@@ -729,9 +725,8 @@ footer {
 
 #cerrar-zoom {
     position: absolute;
-    top: 16px;    /* Cambiamos el -15px por 16px positivos */
-    right: 16px;  /* Cambiamos el -15px por 16px positivos */
-    
+    top: 16px;  
+    right: 16px;  
     background: var(--color-fondo);
     color: var(--color-texto);
     border: 2px solid var(--color-borde);
