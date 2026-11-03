@@ -487,6 +487,132 @@ footer {
     border-top: 2px solid var(--color-naranja);
 }
 
+
+/* --- VENTANA MODAL (PROYECTOS) --- */
+.modal-oculta {
+    display: none;
+    opacity: 0;
+}
+
+.modal-visible {
+    display: flex;
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(26, 26, 36, 0.85); 
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-contenido {
+    background-color: var(--color-tarjeta);
+    border: 3px solid var(--color-borde);
+    border-radius: 16px;
+    width: 90%;
+    max-width: 700px;
+    max-height: 90vh;
+    overflow-y: auto; 
+    padding: 32px;
+    position: relative;
+    box-shadow: 12px 12px 0px var(--color-sombra-1); 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transform: translateY(30px);
+    animation: slideUp 0.3s ease forwards;
+}
+
+@keyframes slideUp {
+    to { transform: translateY(0); }
+}
+
+#cerrar-modal {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    border: 2px solid var(--color-borde);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+    box-shadow: 2px 2px 0px var(--color-sombra-1);
+}
+
+#cerrar-modal:hover {
+    background: var(--color-sombra-1);
+    color: var(--color-fondo);
+    box-shadow: 0px 0px 0px transparent;
+    transform: translate(2px, 2px);
+}
+
+#modal-cuerpo {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#modal-cuerpo img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--color-borde);
+    filter: none; 
+}
+
+#modal-cuerpo h3 { font-size: 28px; color: var(--color-sombra-1); }
+
+#modal-cuerpo p {
+    font-size: 16px;
+    color: var(--color-texto-secundario);
+    display: block; 
+}
+
+#modal-cuerpo ul { list-style: none; display: flex; gap: 8px; flex-wrap: wrap; }
+#modal-cuerpo li { 
+    border: 1px solid var(--color-sombra-1); 
+    color: var(--color-sombra-1); 
+    padding: 4px 12px; 
+    border-radius: 12px; 
+    font-size: 13px; 
+}
+
+#modal-cuerpo div { display: flex; gap: 16px; margin-top: 16px; }
+#modal-cuerpo div a { 
+    text-decoration: none; 
+    color: var(--color-fondo); 
+    font-family: 'Fraunces', serif;
+    font-weight: bold; 
+    padding: 10px 24px; 
+    background: var(--color-sombra-1); 
+    border: 2px solid var(--color-sombra-1); 
+    border-radius: 30px; 
+    box-shadow: 4px 4px 0px var(--color-borde);
+    transition: all 0.2s; 
+}
+#modal-cuerpo div a:hover { 
+    transform: translate(4px, 4px); 
+    box-shadow: 0px 0px 0px transparent; 
+}
+
 /* --- RESPONSIVE (MÓVILES Y TABLETS) --- */
 @media (max-width: 900px) { 
     .galeria { grid-template-columns: 1fr 1fr; } 
