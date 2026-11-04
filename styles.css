@@ -40,6 +40,125 @@
     --color-sombra-4: var(--color-verde);    /* Contacto */
 }
 
+/* --- PALETA MODO CLARO -- */
+body.tema-claro {
+    --color-fondo: #F8F9FA; 
+    --color-tarjeta: #FFFFFF; 
+    --color-texto: #1a1a24; 
+    --color-texto-secundario: #4a4a5e; 
+    --color-borde: #1a1a24; 
+    
+    --color-naranja: #FADBD8; 
+    --color-azul: #D6EAF8; 
+    --color-amarillo: #FCF3CF; 
+    --color-rosa: #EBDEF0; 
+    --color-verde: #D5F5E3; 
+}
+
+/* COLOREAR TARJETAS Y VENTANA MODAL  */
+body.tema-claro #proyectos article,
+body.tema-claro #skills article {
+    background-color: var(--hover-color) !important; 
+    border-color: var(--color-texto) !important; 
+    box-shadow: 6px 6px 0px var(--color-texto) !important; 
+}
+
+body.tema-claro #proyectos article:hover,
+body.tema-claro #skills article:hover {
+    border-color: var(--color-texto) !important; 
+    box-shadow: 10px 10px 0px var(--color-texto) !important; 
+}
+
+body.tema-claro .modal-contenido {
+    background-color: var(--color-modal-actual) !important; 
+    border-color: var(--color-texto) !important; 
+    box-shadow: 12px 12px 0px var(--color-texto) !important; 
+}
+
+body.tema-claro article img,
+body.tema-claro .coverflow-slide {
+    background-color: #FFFFFF !important; 
+    border-color: var(--color-borde) !important; 
+}
+
+body.tema-claro #proyectos article:hover img {
+    border-color: var(--color-borde) !important; 
+}
+
+body.tema-claro #proyectos article h3,
+body.tema-claro #proyectos article p,
+body.tema-claro #proyectos article li,
+body.tema-claro #proyectos article a,
+body.tema-claro #skills article h3,
+body.tema-claro #skills article li {
+    color: var(--color-texto) !important;
+}
+
+body.tema-claro #proyectos article li,
+body.tema-claro #proyectos article a {
+    border-color: var(--color-texto) !important; 
+}
+
+body.tema-claro #skills li::before {
+    color: var(--color-texto) !important;
+}
+
+body.tema-claro #modal-cuerpo h3,
+body.tema-claro #modal-cuerpo li {
+    color: var(--color-texto) !important;
+    border-color: var(--color-texto) !important;
+}
+
+/* FLECHAS, BOTÓN CERRAR Y BOTONES DE ACCIÓN */
+body.tema-claro .slider-btn,
+body.tema-claro #cerrar-modal,
+body.tema-claro #cerrar-zoom {
+    border-color: var(--color-texto) !important; 
+    color: var(--color-texto) !important; 
+    box-shadow: 2px 2px 0px var(--color-texto) !important;
+}
+
+body.tema-claro .slider-btn:hover,
+body.tema-claro #cerrar-modal:hover,
+body.tema-claro #cerrar-zoom:hover {
+    background-color: var(--color-texto) !important;
+    color: var(--color-fondo) !important;
+    box-shadow: 0px 0px 0px transparent !important;
+}
+
+body.tema-claro .boton-principal,
+body.tema-claro .modal-botones a {
+    background-color: var(--color-tarjeta) !important; 
+    border: 2px solid var(--color-texto) !important; 
+    color: var(--color-texto) !important;
+    box-shadow: 4px 4px 0px var(--color-texto) !important;
+}
+
+body.tema-claro .boton-principal:hover,
+body.tema-claro .modal-botones a:hover {
+    background-color: var(--color-texto) !important;
+    color: var(--color-fondo) !important;
+    box-shadow: 0px 0px 0px transparent !important;
+}
+
+/* IMAGEN AMPLIADA */
+body.tema-claro #img-zoom {
+    border-color: var(--color-texto) !important;
+}
+
+/* --- SOMBRA BOTONES --- */
+body.tema-claro .ver-mas-proyectos .boton-principal,
+body.tema-claro #contacto .boton-principal {
+    box-shadow: 4px 4px 0px var(--btn-color) !important; 
+}
+
+body.tema-claro .ver-mas-proyectos .boton-principal:hover,
+body.tema-claro #contacto .boton-principal:hover {
+    background-color: var(--btn-color) !important;
+    color: var(--color-texto) !important; 
+    box-shadow: 0px 0px 0px transparent !important;
+}
+
 /* --- RESETEO Y ESTILOS BASE --- */
 * { 
     margin: 0; 
@@ -311,7 +430,6 @@ article div a:hover {
 }
 
 #skills article { 
-    --hover-color: var(--color-sombra-2); 
     background-color: var(--color-tarjeta); 
     border: 2px solid var(--color-borde); 
     border-radius: 12px; 
@@ -321,14 +439,17 @@ article div a:hover {
     transition: all 0.3s ease;
 }
 
+/* Colores únicos para cada skill */
+#skills article:nth-child(1) { --hover-color: var(--color-naranja); } 
+#skills article:nth-child(2) { --hover-color: var(--color-azul); }    
+#skills article:nth-child(3) { --hover-color: var(--color-rosa); }    
+#skills article:nth-child(4) { --hover-color: var(--color-verde); grid-column: 2 / span 2; }   
+#skills article:nth-child(5) { --hover-color: var(--color-amarillo); }
+
 #skills article:hover {
     transform: translate(-4px, -4px);
     border-color: var(--hover-color);
     box-shadow: 10px 10px 0px var(--hover-color);
-}
-
-#skills article:nth-child(4) { 
-    grid-column: 2 / span 2; 
 }
 
 #skills h3 { 
@@ -408,8 +529,6 @@ ul.timeline > li:hover::before {
 }
 
 /* --- GITHUB / CONTACTO --- */
-
-/* "Ver más" de Proyectos */
 .ver-mas-proyectos {
     text-align: center; 
     margin-top: 60px; 
@@ -445,13 +564,12 @@ ul.timeline > li:hover::before {
     color: var(--color-texto-secundario); 
 }
 
-/* --- Botón GitHub --- */
+/* --- Botones --- */
 .ver-mas-proyectos .boton-principal {
     --btn-color: var(--color-principal); 
     margin-top: 16px; 
 }
 
-/* --- Botón Email  --- */
 #contacto .boton-principal {
     --btn-color: var(--color-sombra-4);
 }
@@ -486,7 +604,6 @@ footer {
     color: var(--color-texto-secundario); 
     border-top: 2px solid var(--color-naranja);
 }
-
 
 /* --- VENTANA MODAL (PROYECTOS) --- */
 .modal-oculta {
@@ -662,13 +779,11 @@ footer {
     transform: translate(-50%, -50%); 
 }
 
-/* PROYECTOS DE PC */
 .coverflow-slide.horizontal {
     width: 320px; 
     height: 180px; 
 }
 
-/* Botones de control del slider */
 .slider-btn {
     position: absolute;
     top: 50%;
@@ -749,7 +864,7 @@ footer {
     transform: translate(2px, 2px);
 }
 
-/* --- SCROLL */
+/* --- SCROLL --- */
 .oculto-scroll {
     opacity: 0;
     transform: translateY(40px); 

@@ -285,4 +285,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     elementosAnimables.forEach(el => observadorScroll.observe(el));
+
+    // --- MODO CLARO / OSCURO ---
+    const btnTema = document.getElementById('btn-tema');
+    const temaGuardado = localStorage.getItem('tema');
+
+    // Comprobar si había un tema guardado al cargar la web
+    if (temaGuardado === 'claro') {
+        document.body.classList.add('tema-claro');
+        btnTema.textContent = '⏾'; 
+    }
+
+    // clic en el botón
+    btnTema.addEventListener('click', () => {
+        document.body.classList.toggle('tema-claro'); 
+        
+        if (document.body.classList.contains('tema-claro')) {
+            localStorage.setItem('tema', 'claro');
+            btnTema.textContent = '⏾';
+        } else {
+            localStorage.setItem('tema', 'oscuro');
+            btnTema.textContent = '☀︎';
+        }
+    });
 });
