@@ -749,6 +749,18 @@ footer {
     transform: translate(2px, 2px);
 }
 
+/* --- SCROLL */
+.oculto-scroll {
+    opacity: 0;
+    transform: translateY(40px); 
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.visible-scroll {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* --- RESPONSIVE (MÓVILES Y TABLETS) --- */
 @media (max-width: 900px) { 
     .galeria { grid-template-columns: 1fr 1fr; } 
