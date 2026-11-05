@@ -1,76 +1,7 @@
-document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- DATOS DE PROYECTOS ---
-    const proyectosData = {
-        "pedrapp": {
-            titulo: "★ PedrApp",
-            color: "var(--color-azul)", 
-            descripcionLarga: "App a medida para el seguimiento integral de estudio y entrenamiento de oposiciones. Incluye un mapa interactivo con conexión a Waze, temporizador pomodoro flotante con notificaciones en segundo plano, y un gestor de pruebas físicas con métricas de progreso.",
-            tecnologias: ["Desarrollo Móvil", "Lógica de Negocio", "UI/UX"],
-            imagenPrincipal: "./assets/images/pedrapp.png",
-            capturas: [
-                "./assets/images/capturas/pedrapp1.jpeg",
-                "./assets/images/capturas/pedrapp2.jpeg",
-                "./assets/images/capturas/pedrapp3.jpeg",
-                "./assets/images/capturas/pedrapp4.jpeg",
-                "./assets/images/capturas/pedrapp5.jpeg",
-                "./assets/images/capturas/pedrapp6.jpeg",
-                "./assets/images/capturas/pedrapp7.jpeg",
-                "./assets/images/capturas/pedrapp8.jpeg",
-            ],
-            demoUrl: "#",
-            githubUrl: "https://github.com/suspinlaj/pedrapp"
-        },
-        "slimash": {
-            titulo: "★ Slimash",
-            color: "var(--color-amarillo)", 
-            descripcionLarga: "Juego de reacción rápida con estética pixel art donde hay que poner a prueba los reflejos. Desarrollo en Android nativo enfocado en la inmersión del usuario, gestión de estados y animaciones de UI personalizadas.",
-            tecnologias: ["Kotlin", "Pixel Art", "Multimedia", "Android"],
-            imagenPrincipal: "./assets/images/slimash.png",
-            capturas: [
-                "./assets/images/capturas/slimash1.jpeg",
-                "./assets/images/capturas/slimash2.jpeg",
-                "./assets/images/capturas/slimash3.jpeg",
-                "./assets/images/capturas/slimash4.jpeg",
-            ],
-            demoUrl: "#",
-            githubUrl: "https://github.com/suspinlaj/slimash"
-        },
-        "techbot": {
-            titulo: "★ TechBot",
-            color: "var(--color-rosa)", 
-            orientacion: "horizontal", 
-            descripcionLarga: "Bot automatizado para la gestión técnica y organizativa. Desarrollo enfocado en la optimización de procesos y respuestas en tiempo real.",
-            tecnologias: ["Desarrollo Móvil", "Lógica matricial", "Ilustración"],
-            imagenPrincipal: "./assets/images/techbot.png",
-            capturas: [
-                "./assets/images/capturas/techbot1.png",
-                "./assets/images/capturas/techbot2.png",
-                "./assets/images/capturas/techbot3.png",
-                "./assets/images/capturas/techbot4.png",
-            ],
-            demoUrl: "#",
-            githubUrl: "https://github.com/suspinlaj/Tech-Bot"
-        },
-        "lqntd": {
-            titulo: "★ Lo que nunca te dije",
-            color: "var(--color-verde)", 
-            descripcionLarga: "Diario personal íntimo, seguro y estético. Aplicación desarrollada en Flutter con integración de servicios en la nube mediante Firebase, cifrado local y optimización avanzada de archivos multimedia y compresión de vídeo en segundo plano.",
-            tecnologias: ["Flutter", "Firebase", "UI/UX", "Cloud Storage"],
-            imagenPrincipal: "./assets/images/lqntd.png",
-            capturas: [
-                "./assets/images/capturas/lqntd1.jpeg",
-                "./assets/images/capturas/lqntd2.jpeg",
-                "./assets/images/capturas/lqntd3.jpeg",
-                "./assets/images/capturas/lqntd4.jpeg",
-                "./assets/images/capturas/lqntd5.jpeg"
-            ],
-            demoUrl: "#",
-            githubUrl: "https://github.com/suspinlaj/lo-que-nunca-te-dije"
-        }
-    };
+import { proyectosData } from './data.js';
+import { idiomaActual } from './i18n.js';
 
-    // --- ELEMENTOS DEL DOM PRINCIPALES ---
+export const inicializarModales = () => {
     const tarjetasProyectos = document.querySelectorAll('#proyectos article');
     const modal = document.getElementById('modal-proyecto');
     const modalContenido = document.querySelector('.modal-contenido'); 
@@ -101,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnZoomPrev = document.getElementById('zoom-prev');
     const btnZoomNext = document.getElementById('zoom-next');
 
-    // Ahora recibimos también el índice y el array de fotos
     const abrirZoom = (src, color, index, arrayFotos) => {
         arrayZoomActual = arrayFotos;
         indiceZoomActual = index;
@@ -116,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
         zoomModal.classList.add('modal-oculta');
     };
 
-    // Funciones de las flechas del zoom
     btnZoomPrev.addEventListener('click', (e) => {
         e.stopPropagation();
         indiceZoomActual = (indiceZoomActual === 0) ? arrayZoomActual.length - 1 : indiceZoomActual - 1;
@@ -134,14 +63,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (evento.target === zoomModal) cerrarZoom();
     });
 
+    // --- MODAL PRINCIPAL ---
     const abrirModal = (projectId) => {
         const datos = proyectosData[projectId];
         if (!datos) return;
 
-        // Establecer el color de la tarjeta para usarlo en CSS
         modalContenido.style.setProperty('--color-modal-actual', datos.color);
 
-        let htmlTags = datos.tecnologias.map(tech => `<li>${tech}</li>`).join('');
+        let htmlTags = datos.tecnologias[idiomaActual].map(tech => `<li>${tech}</li>`).join('');
         
         let htmlCoverflow = '';
         if (datos.capturas && datos.capturas.length > 0) {
@@ -162,17 +91,18 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         }
 
-        // Inyección del contenido HTML
+        const textoDemo = idiomaActual === 'es' ? 'Ver Video ↗' : 'Watch Video ↗';
+
         modalCuerpo.innerHTML = `
             <h3>${datos.titulo}</h3>
-            <p>${datos.descripcionLarga}</p>
+            <p>${datos.descripcionLarga[idiomaActual]}</p>
             
             ${htmlCoverflow}
 
             <ul>${htmlTags}</ul>
             
             <div class="modal-botones">
-                <a href="${datos.demoUrl}" target="_blank">Ver Demo ↗</a>
+                <a href="${datos.demoUrl}" target="_blank">${textoDemo}</a>
                 <a href="${datos.githubUrl}" target="_blank">GitHub ↗</a>
             </div>
         `;
@@ -181,7 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.classList.add('modal-visible');
         document.body.style.overflow = 'hidden';
 
-        // ---  CARRUSEL ---
         if (datos.capturas && datos.capturas.length > 0) {
             let indiceActual = 0;
             const slidesDOM = modalCuerpo.querySelectorAll('.coverflow-slide');
@@ -197,13 +126,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     let transformacion = `translate(-50%, -50%) `; 
                     
                     if (diferencia === 0) {
-                        // Imagen Central Activa
                         transformacion += `translateX(0px) scale(1.1) rotateY(0deg)`;
                         slide.style.zIndex = 50;
                         slide.style.opacity = 1;
                         slide.style.filter = 'brightness(1)';
                     } else {
-                        // Imágenes Secundarias 
                         const empujeBase = datos.orientacion === "horizontal" ? 170 : 100; 
                         const pushX = direccion * (empujeBase + (absDiferencia * 40)); 
                         const giroY = direccion * -45; 
@@ -214,7 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         slide.style.opacity = Math.max(0, 1 - (absDiferencia * 0.3)); 
                         slide.style.filter = 'brightness(0.4)'; 
                     }
-                    
                     slide.style.transform = transformacion;
                 });
             };
@@ -235,11 +161,9 @@ document.addEventListener('DOMContentLoaded', () => {
             slidesDOM.forEach((slide, index) => {
                 slide.addEventListener('click', () => {
                     if (indiceActual === index) {
-                        // Abrir imagen en Zoom
                         abrirZoom(slide.src, datos.color, index, datos.capturas);
                         clearInterval(intervaloSlider); 
                     } else {
-                        // Traer imagen seleccionada al frente
                         indiceActual = index;
                         actualizarCoverflow();
                         reiniciarAutoplay();
@@ -247,7 +171,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
 
-            // --- AUTOPLAY CARRUSEL ---
             const iniciarAutoplay = () => { intervaloSlider = setInterval(pasarSiguiente, 3000); };
             const reiniciarAutoplay = () => { clearInterval(intervaloSlider); iniciarAutoplay(); };
 
@@ -256,7 +179,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // --- EVENTOS CERRAR MODALES ---
     const cerrarModal = () => {
         clearInterval(intervaloSlider); 
         modal.classList.remove('modal-visible');
@@ -278,7 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (evento.target === modal) cerrarModal();
     });
 
-    // Accesibilidad Teclado (ESC)
     document.addEventListener('keydown', (evento) => {
         if (evento.key === 'Escape') {
             if (zoomModal.classList.contains('modal-visible')) {
@@ -288,48 +209,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
-
-    // ---SCROLL ---
-    
-    //  lo que quiero animar
-    const elementosAnimables = document.querySelectorAll('section h2, #proyectos article, #skills article, ul.timeline > li');
-    
-    elementosAnimables.forEach(el => el.classList.add('oculto-scroll'));
-
-    const observadorScroll = new IntersectionObserver((entradas) => {
-        entradas.forEach(entrada => {
-            if (entrada.isIntersecting) {
-                entrada.target.classList.add('visible-scroll');
-                observadorScroll.unobserve(entrada.target); 
-            }
-        });
-    }, {
-        threshold: 0.15 
-    });
-
-    elementosAnimables.forEach(el => observadorScroll.observe(el));
-
-    // --- MODO CLARO / OSCURO ---
-    const btnTema = document.getElementById('btn-tema');
-    const temaGuardado = localStorage.getItem('tema');
-
-    // Comprobar si había un tema guardado al cargar la web
-    if (temaGuardado === 'claro') {
-        document.body.classList.add('tema-claro');
-        btnTema.textContent = '⏾'; 
-    }
-
-    // clic en el botón
-    btnTema.addEventListener('click', () => {
-        document.body.classList.toggle('tema-claro'); 
-        
-        if (document.body.classList.contains('tema-claro')) {
-            localStorage.setItem('tema', 'claro');
-            btnTema.textContent = '⏾';
-        } else {
-            localStorage.setItem('tema', 'oscuro');
-            btnTema.textContent = '☀︎';
-        }
-    });
-});
-
+};
