@@ -102,8 +102,9 @@ body.tema-claro #contacto .boton-principal {
 
 body.tema-claro .ver-mas-proyectos .boton-principal:hover,
 body.tema-claro #contacto .boton-principal:hover {
-    background-color: var(--btn-color) !important;
-    color: var(--color-texto) !important; 
+    background-color: var(--btn-color) !important; 
+    border-color: var(--btn-color) !important;
+    color: var(--color-fondo) !important; 
     box-shadow: 0px 0px 0px transparent !important;
 }
 
