@@ -102,8 +102,9 @@ body.tema-claro #contacto .boton-principal {
 
 body.tema-claro .ver-mas-proyectos .boton-principal:hover,
 body.tema-claro #contacto .boton-principal:hover {
-    background-color: var(--btn-color) !important;
-    color: var(--color-texto) !important; 
+    background-color: var(--btn-color) !important; 
+    border-color: var(--btn-color) !important;
+    color: var(--color-fondo) !important; 
     box-shadow: 0px 0px 0px transparent !important;
 }
 
@@ -122,6 +123,20 @@ body.tema-claro #cerrar-modal:hover,
 body.tema-claro #cerrar-zoom:hover,
 body.tema-claro .zoom-btn:hover {
     background-color: var(--color-texto) !important;
+    color: var(--color-fondo) !important;
+    box-shadow: 0px 0px 0px transparent !important;
+}
+
+/* --- BOTONES DEL HEADER (TEMA E IDIOMA) --- */
+body.tema-claro header div button {
+    border-color: var(--color-texto) !important; 
+    color: var(--color-texto) !important; 
+    box-shadow: 2px 2px 0px var(--color-texto) !important;
+}
+
+body.tema-claro header div button:hover {
+    background-color: var(--color-principal) !important; 
+    border-color: var(--color-principal) !important;
     color: var(--color-fondo) !important;
     box-shadow: 0px 0px 0px transparent !important;
 }
