@@ -2,13 +2,14 @@
 body.tema-claro #proyectos article,
 body.tema-claro #skills article {
     background-color: var(--hover-color) !important; 
-    border-color: var(--color-texto) !important; 
+    border: 2px solid var(--color-texto) !important; 
     box-shadow: 6px 6px 0px var(--color-texto) !important; 
 }
 
 body.tema-claro #proyectos article:hover,
 body.tema-claro #skills article:hover {
-    border-color: var(--color-texto) !important; 
+    background-color: var(--hover-color) !important;
+    border: 2px solid var(--color-texto) !important; 
     box-shadow: 10px 10px 0px var(--color-texto) !important; 
 }
 
@@ -99,5 +100,24 @@ body.tema-claro .ver-mas-proyectos .boton-principal:hover,
 body.tema-claro #contacto .boton-principal:hover {
     background-color: var(--btn-color) !important;
     color: var(--color-texto) !important; 
+    box-shadow: 0px 0px 0px transparent !important;
+}
+
+/* FLECHAS, BOTÓN CERRAR Y BOTONES DE ACCIÓN */
+body.tema-claro .slider-btn,
+body.tema-claro #cerrar-modal,
+body.tema-claro #cerrar-zoom,
+body.tema-claro .zoom-btn {
+    border-color: var(--color-texto) !important; 
+    color: var(--color-texto) !important; 
+    box-shadow: 2px 2px 0px var(--color-texto) !important;
+}
+
+body.tema-claro .slider-btn:hover,
+body.tema-claro #cerrar-modal:hover,
+body.tema-claro #cerrar-zoom:hover,
+body.tema-claro .zoom-btn:hover {
+    background-color: var(--color-texto) !important;
+    color: var(--color-fondo) !important;
     box-shadow: 0px 0px 0px transparent !important;
 }

@@ -256,3 +256,33 @@
     box-shadow: 0px 0px 0px transparent;
     transform: translate(2px, 2px);
 }
+
+/* Botones de navegación para la imagen ampliada */
+.zoom-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    border: 2px solid var(--color-borde);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+    box-shadow: 2px 2px 0px var(--color-modal-actual, var(--color-naranja));
+    z-index: 2010;
+}
+
+.zoom-btn.prev { left: 20px; }
+.zoom-btn.next { right: 20px; }
+
+.zoom-btn:hover {
+    background: var(--color-modal-actual, var(--color-naranja));
+    color: var(--color-fondo);
+    box-shadow: 0px 0px 0px transparent;
+}
