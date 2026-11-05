@@ -2,14 +2,18 @@
 body.tema-claro #proyectos article,
 body.tema-claro #skills article {
     background-color: var(--hover-color) !important; 
-    border: 2px solid var(--color-texto) !important; 
+    border-color: var(--color-texto) !important; 
     box-shadow: 6px 6px 0px var(--color-texto) !important; 
+}
+
+body.tema-claro article:hover li {
+    border-color: var(--color-texto) !important;
+    color: var(--color-texto) !important;
 }
 
 body.tema-claro #proyectos article:hover,
 body.tema-claro #skills article:hover {
-    background-color: var(--hover-color) !important;
-    border: 2px solid var(--color-texto) !important; 
+    border-color: var(--color-texto) !important; 
     box-shadow: 10px 10px 0px var(--color-texto) !important; 
 }
 
