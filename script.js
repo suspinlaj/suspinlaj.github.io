@@ -80,12 +80,17 @@ document.addEventListener('DOMContentLoaded', () => {
     let intervaloSlider; 
 
     // --- VENTANA DE ZOOM ---
+    let arrayZoomActual = [];
+    let indiceZoomActual = 0;
+
     const zoomModal = document.createElement('div');
     zoomModal.id = 'modal-zoom';
     zoomModal.className = 'modal-oculta';
     zoomModal.innerHTML = `
         <div class="zoom-contenido">
             <button id="cerrar-zoom">✖</button>
+            <button class="zoom-btn prev" id="zoom-prev">❮</button>
+            <button class="zoom-btn next" id="zoom-next">❯</button>
             <img id="img-zoom" src="" alt="Captura ampliada">
         </div>
     `;
@@ -93,8 +98,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const imgZoom = document.getElementById('img-zoom');
     const btnCerrarZoom = document.getElementById('cerrar-zoom');
+    const btnZoomPrev = document.getElementById('zoom-prev');
+    const btnZoomNext = document.getElementById('zoom-next');
 
-    const abrirZoom = (src, color) => {
+    // Ahora recibimos también el índice y el array de fotos
+    const abrirZoom = (src, color, index, arrayFotos) => {
+        arrayZoomActual = arrayFotos;
+        indiceZoomActual = index;
         imgZoom.src = src;
         zoomModal.style.setProperty('--color-modal-actual', color);
         zoomModal.classList.remove('modal-oculta');
@@ -105,6 +115,19 @@ document.addEventListener('DOMContentLoaded', () => {
         zoomModal.classList.remove('modal-visible');
         zoomModal.classList.add('modal-oculta');
     };
+
+    // Funciones de las flechas del zoom
+    btnZoomPrev.addEventListener('click', (e) => {
+        e.stopPropagation();
+        indiceZoomActual = (indiceZoomActual === 0) ? arrayZoomActual.length - 1 : indiceZoomActual - 1;
+        imgZoom.src = arrayZoomActual[indiceZoomActual];
+    });
+
+    btnZoomNext.addEventListener('click', (e) => {
+        e.stopPropagation();
+        indiceZoomActual = (indiceZoomActual === arrayZoomActual.length - 1) ? 0 : indiceZoomActual + 1;
+        imgZoom.src = arrayZoomActual[indiceZoomActual];
+    });
 
     btnCerrarZoom.addEventListener('click', cerrarZoom);
     zoomModal.addEventListener('click', (evento) => {
@@ -213,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 slide.addEventListener('click', () => {
                     if (indiceActual === index) {
                         // Abrir imagen en Zoom
-                        abrirZoom(slide.src, datos.color);
+                        abrirZoom(slide.src, datos.color, index, datos.capturas);
                         clearInterval(intervaloSlider); 
                     } else {
                         // Traer imagen seleccionada al frente
@@ -309,3 +332,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
