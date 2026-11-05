@@ -1,0 +1,141 @@
+/* --- CABECERA Y NAVEGACIÓN --- */
+header { 
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 24px; 
+}
+
+/* --- Botones Tema e Idioma --- */
+header div { 
+    position: absolute; 
+    top: 20px; 
+    right: 20px; 
+}
+
+header div button { 
+    background: var(--color-tarjeta); 
+    color: var(--color-texto); 
+    border: 2px solid var(--color-borde); 
+    padding: 8px 12px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    box-shadow: 2px 2px 0px var(--color-principal); 
+    transition: all 0.2s;
+}
+
+header div button:hover { 
+    transform: translate(2px, 2px); 
+    box-shadow: 0px 0px 0px transparent; 
+    border-color: var(--color-principal);
+}
+
+/* --- Foto de Portada --- */
+header img {
+    width: 260px; 
+    aspect-ratio: 1/1; 
+    object-fit: cover; 
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    border: 3px solid var(--color-principal);
+    box-shadow: 12px 12px 0px var(--color-principal); 
+    transition: all 0.5s ease-in-out;
+}
+
+header img:hover { 
+    transform: translate(-4px, -4px);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    border-color: var(--color-principal);
+}
+
+header h1 { 
+    font-size: 42px; 
+    text-align: center; 
+}
+
+header p { 
+    font-size: 18px; 
+    text-align: center; 
+    max-width: 600px; 
+    color: var(--color-texto-secundario); 
+}
+
+/* --- Menú de Navegación --- */
+nav { 
+    display: flex; 
+    gap: 16px; 
+    margin-top: 16px; 
+}
+
+nav a { 
+    text-decoration: none; 
+    color: var(--color-texto); 
+    padding: 10px 20px; 
+    background: var(--color-tarjeta); 
+    border: 2px solid var(--color-borde); 
+    border-radius: 30px; 
+    font-size: 15px; 
+    font-weight: 600; 
+    transition: all 0.2s; 
+}
+
+nav a:nth-child(1) { --nav-color: var(--color-sombra-1); box-shadow: 4px 4px 0px var(--nav-color); }
+nav a:nth-child(2) { --nav-color: var(--color-sombra-2); box-shadow: 4px 4px 0px var(--nav-color); }
+nav a:nth-child(3) { --nav-color: var(--color-sombra-3); box-shadow: 4px 4px 0px var(--nav-color); }
+nav a:nth-child(4) { --nav-color: var(--color-sombra-4); box-shadow: 4px 4px 0px var(--nav-color); }
+
+nav a:hover { 
+    transform: translate(4px, 4px); 
+    box-shadow: 0px 0px 0px transparent;
+    background: var(--nav-color); 
+    border-color: var(--nav-color); 
+    color: var(--color-fondo);
+}
+
+/* --- ESTRUCTURA Y TÍTULOS DE SECCIONES --- */
+section { 
+    padding: 100px 20px; 
+    max-width: 1050px; 
+    margin: 0 auto; 
+}
+
+/* linea de títulos */
+section h2 { 
+    font-size: 32px; 
+    margin-bottom: 40px; 
+    position: relative;
+    display: inline-block;
+}
+
+section h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+}
+
+#proyectos h2 { color: var(--color-sombra-1); }
+#proyectos h2::after { background-color: var(--color-sombra-1); }
+
+#skills h2 { color: var(--color-sombra-2); }
+#skills h2::after { background-color: var(--color-sombra-2); }
+
+#sobremi h2 { color: var(--color-sombra-3); }
+#sobremi h2::after { background-color: var(--color-sombra-3); }
+
+#contacto h2 { color: var(--color-sombra-4); }
+#contacto h2::after { background-color: var(--color-sombra-4); }
+
+/* --- FOOTER --- */
+footer { 
+    text-align: center; 
+    padding: 40px; 
+    font-size: 14px;
+    font-weight: 600; 
+    color: var(--color-texto-secundario); 
+    border-top: 2px solid var(--color-naranja);
+}

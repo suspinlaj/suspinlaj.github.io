@@ -1,0 +1,56 @@
+/* --- VARIABLES GLOBALES ---  */
+
+@font-face {
+    font-family: 'Fraunces';
+    src: url('./assets/fonts/fraunces.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('./assets/fonts/jakarta.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    /* --- Paleta base oscura --- */
+    --color-fondo: #1a1a24; 
+    --color-tarjeta: #232330; 
+    --color-texto: #F4F0EA; 
+    --color-texto-secundario: #a0a0b0; 
+    --color-borde: #4a4a5e; 
+    
+    /* --- Colores  --- */
+    --color-naranja: #E29578;
+    --color-azul: #9BB8D7;
+    --color-amarillo: #E2C275;
+    --color-rosa: #CBAACB;
+    --color-verde: #A3C9A8;
+
+    --color-principal: var(--color-naranja); 
+
+    /* --- Colores Secciones --- */
+    --color-sombra-1: var(--color-azul);     /* Proyectos */
+    --color-sombra-2: var(--color-amarillo); /* Skills */
+    --color-sombra-3: var(--color-rosa);     /* Sobre Mí */
+    --color-sombra-4: var(--color-verde);    /* Contacto */
+}
+
+/* --- PALETA MODO CLARO -- */
+body.tema-claro {
+    --color-fondo: #F8F9FA; 
+    --color-tarjeta: #FFFFFF; 
+    --color-texto: #1a1a24; 
+    --color-texto-secundario: #4a4a5e; 
+    --color-borde: #1a1a24; 
+    
+    --color-naranja: #FADBD8; 
+    --color-azul: #D6EAF8; 
+    --color-amarillo: #FCF3CF; 
+    --color-rosa: #EBDEF0; 
+    --color-verde: #D5F5E3; 
+}

@@ -1,0 +1,275 @@
+/* --- PROYECTOS --- */
+.galeria { 
+    display: grid; 
+    gap: 20px; 
+    grid-template-columns: repeat(4, 1fr); 
+}
+
+#proyectos article { 
+    background-color: var(--color-tarjeta); 
+    border: 2px solid var(--color-borde); 
+    border-radius: 12px; 
+    padding: 16px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+    cursor: pointer; 
+    transition: all 0.3s ease; 
+}
+
+#proyectos article:nth-child(1) { --hover-color: var(--color-azul); box-shadow: 6px 6px 0px var(--hover-color); }
+#proyectos article:nth-child(2) { --hover-color: var(--color-amarillo); box-shadow: 6px 6px 0px var(--hover-color); }
+#proyectos article:nth-child(3) { --hover-color: var(--color-rosa); box-shadow: 6px 6px 0px var(--hover-color); }
+#proyectos article:nth-child(4) { --hover-color: var(--color-verde); box-shadow: 6px 6px 0px var(--hover-color); }
+
+#proyectos article:hover { 
+    transform: translate(-4px, -4px); 
+    border-color: var(--hover-color);
+    box-shadow: 10px 10px 0px var(--hover-color) !important; 
+}
+
+article img { 
+    width: 100%; 
+    aspect-ratio: 16/9; 
+    object-fit: cover; 
+    border-radius: 6px; 
+    border: 2px solid var(--color-borde); 
+    filter: grayscale(80%) brightness(0.9); 
+    transition: all 0.4s ease; 
+}
+
+article:hover img { 
+    filter: grayscale(0%) brightness(1.05); 
+    border-color: var(--hover-color); 
+}
+
+#proyectos article h3 { 
+    font-size: 18px; 
+}
+
+#proyectos article p {
+    font-size: 13px; 
+    color: var(--color-texto-secundario); 
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical; 
+    overflow: hidden;
+}
+
+/* --- Etiquetas (Tecnologías) --- */
+article ul { 
+    list-style: none; 
+    display: flex; 
+    gap: 6px; 
+    flex-wrap: wrap; 
+    margin-top: auto; 
+}
+
+article li { 
+    border: 1px dashed var(--color-borde); 
+    color: var(--color-texto-secundario); 
+    background: transparent;
+    padding: 2px 8px; 
+    border-radius: 12px; 
+    font-size: 11px; 
+    transition: all 0.3s ease;
+}
+
+article:hover li { 
+    color: var(--hover-color); 
+    border-color: var(--hover-color); 
+    border-style: solid;
+}
+
+/* --- Enlaces Demo / GitHub --- */
+article div { 
+    display: flex; 
+    gap: 12px; 
+    margin-top: 4px; 
+}
+
+article div a { 
+    text-decoration: none; 
+    color: var(--color-texto); 
+    font-size: 13px;
+    border-bottom: 2px solid var(--color-borde); 
+    transition: all 0.2s; 
+}
+
+article div a:hover { 
+    color: var(--hover-color); 
+    border-color: var(--hover-color); 
+}
+
+/* --- HABILIDADES --- */
+.galeria-skills { 
+    display: grid; 
+    gap: 20px; 
+    grid-template-columns: repeat(6, 1fr); 
+}
+
+#skills article { 
+    background-color: var(--color-tarjeta); 
+    border: 2px solid var(--color-borde); 
+    border-radius: 12px; 
+    grid-column: span 2; 
+    padding: 20px;
+    box-shadow: 6px 6px 0px var(--hover-color);
+    transition: all 0.3s ease;
+}
+
+/* Colores únicos para cada skill */
+#skills article:nth-child(1) { --hover-color: var(--color-naranja); } 
+#skills article:nth-child(2) { --hover-color: var(--color-azul); }    
+#skills article:nth-child(3) { --hover-color: var(--color-rosa); }    
+#skills article:nth-child(4) { --hover-color: var(--color-verde); grid-column: 2 / span 2; }   
+#skills article:nth-child(5) { --hover-color: var(--color-amarillo); }
+
+#skills article:hover {
+    transform: translate(-4px, -4px);
+    border-color: var(--hover-color);
+    box-shadow: 10px 10px 0px var(--hover-color);
+}
+
+#skills h3 { 
+    font-size: 16px; 
+    margin-bottom: 16px; 
+    color: var(--hover-color); 
+}
+
+#skills ul { 
+    list-style: none; 
+}
+
+#skills li { 
+    margin-bottom: 8px; 
+    font-size: 14px; 
+    color: var(--color-texto-secundario); 
+}
+
+#skills li::before { 
+    content: "✿"; 
+    margin-right: 8px; 
+    color: var(--hover-color); 
+}
+
+/* --- SOBRE MÍ --- */
+.contenedor-sobremi { 
+    display: flex; 
+    gap: 60px; 
+}
+
+.contenedor-sobremi > div { 
+    flex: 1; 
+}
+
+.contenedor-sobremi p { 
+    color: var(--color-texto-secundario); 
+    margin-bottom: 16px; 
+}
+
+ul.timeline { 
+    list-style: none; 
+    border-left: 3px solid var(--color-borde); 
+    padding-left: 30px; 
+    margin-left: 12px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 40px; 
+}
+
+ul.timeline > li { 
+    position: relative; 
+}
+
+ul.timeline > li::before { 
+    content: ""; 
+    position: absolute; 
+    left: -41px; 
+    top: 4px; 
+    width: 14px; 
+    height: 14px; 
+    background: var(--color-fondo); 
+    border: 3px solid var(--color-sombra-3); 
+    border-radius: 50%; 
+    transition: all 0.3s;
+}
+
+ul.timeline > li:hover::before { 
+    background: var(--color-sombra-3); 
+}
+
+#sobremi ul ul { 
+    margin-top: 12px; 
+    padding-left: 20px; 
+    list-style: disc; 
+    font-size: 14px; 
+    color: var(--color-texto-secundario); 
+}
+
+/* --- GITHUB / CONTACTO --- */
+.ver-mas-proyectos {
+    text-align: center; 
+    margin-top: 60px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 4px; 
+}
+
+#contacto { 
+    text-align: center;
+    padding-top: 20px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 16px; 
+}
+
+#contacto h2 {
+    color: var(--color-sombra-4);
+    margin-bottom: 0; 
+}
+#contacto h2::after { 
+    background-color: var(--color-sombra-4); 
+}
+
+.ver-mas-proyectos h4 {
+    font-size: 20px;
+    color: var(--color-texto);
+}
+
+.ver-mas-proyectos p, #contacto p { 
+    color: var(--color-texto-secundario); 
+}
+
+/* --- Botones --- */
+.ver-mas-proyectos .boton-principal {
+    --btn-color: var(--color-principal); 
+    margin-top: 16px; 
+}
+
+#contacto .boton-principal {
+    --btn-color: var(--color-sombra-4);
+}
+
+.boton-principal { 
+    text-decoration: none; 
+    font-family: 'Fraunces', serif; 
+    font-weight: bold; 
+    font-size: 16px; 
+    padding: 12px 28px; 
+    background: var(--color-tarjeta); 
+    color: var(--btn-color);
+    border: 2px solid var(--btn-color); 
+    border-radius: 30px; 
+    box-shadow: 4px 4px 0px var(--btn-color);
+    transition: all 0.2s; 
+}
+
+.boton-principal:hover { 
+    transform: translate(4px, 4px); 
+    box-shadow: 0px 0px 0px transparent;
+    background: var(--btn-color); 
+    color: var(--color-fondo);
+}

@@ -1,0 +1,10 @@
+/* --- RESPONSIVE (MÓVILES Y TABLETS) --- */
+@media (max-width: 900px) { 
+    .galeria { grid-template-columns: 1fr 1fr; } 
+}
+
+@media (max-width: 768px) {
+    .galeria, .galeria-skills { grid-template-columns: 1fr; }
+    #skills article, #skills article:nth-child(4) { grid-column: 1 / span 1; }
+    .contenedor-sobremi { flex-direction: column; }
+}
