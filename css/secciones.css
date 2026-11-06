@@ -153,6 +153,19 @@ article div a:hover {
     color: var(--hover-color); 
 }
 
+/* --- GIF --- */
+.gif-sobremi {
+    width: 100%;
+    max-width: 480px; 
+    height: auto;
+    margin-bottom: 32px;
+}
+
+/* Ocultamos el GIF del modo claro por defecto */
+.gif-claro {
+    display: none;
+}
+
 /* --- SOBRE MÍ --- */
 .contenedor-sobremi { 
     display: flex; 
@@ -206,6 +219,7 @@ ul.timeline > li:hover::before {
     font-size: 14px; 
     color: var(--color-texto-secundario); 
 }
+
 
 /* --- GITHUB / CONTACTO --- */
 .ver-mas-proyectos {
