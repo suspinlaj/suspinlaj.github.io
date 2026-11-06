@@ -22,7 +22,7 @@ export const proyectosData = {
             "./assets/images/capturas/pedrapp7.jpeg",
             "./assets/images/capturas/pedrapp8.jpeg",
         ],
-        demoUrl: "#",
+        demoUrl: "./assets/videos/video_pedrapp.mp4",
         githubUrl: "https://github.com/suspinlaj/pedrapp"
     },
     "slimash": {
@@ -43,7 +43,7 @@ export const proyectosData = {
             "./assets/images/capturas/slimash3.jpeg",
             "./assets/images/capturas/slimash4.jpeg",
         ],
-        demoUrl: "#",
+        demoUrl: "./assets/videos/video_slimash.mp4",
         githubUrl: "https://github.com/suspinlaj/slimash"
     },
     "techbot": {
@@ -65,7 +65,7 @@ export const proyectosData = {
             "./assets/images/capturas/techbot3.png",
             "./assets/images/capturas/techbot4.png",
         ],
-        demoUrl: "#",
+        demoUrl: "./assets/videos/video_techbot.mp4",
         githubUrl: "https://github.com/suspinlaj/Tech-Bot"
     },
     "lqntd": {
@@ -87,7 +87,7 @@ export const proyectosData = {
             "./assets/images/capturas/lqntd4.jpeg",
             "./assets/images/capturas/lqntd5.jpeg"
         ],
-        demoUrl: "#",
+        demoUrl: "./assets/videos/video_lqntd.mp4",
         githubUrl: "https://github.com/suspinlaj/lo-que-nunca-te-dije"
     }
 };

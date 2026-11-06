@@ -63,6 +63,41 @@ export const inicializarModales = () => {
         if (evento.target === zoomModal) cerrarZoom();
     });
 
+    // --- VENTANA DE VIDEO ---
+    const videoModal = document.createElement('div');
+    videoModal.id = 'modal-video';
+    videoModal.className = 'modal-oculta';
+    videoModal.innerHTML = `
+        <div class="zoom-contenido">
+            <button id="cerrar-video">✖</button>
+            <video id="reproductor-video" controls></video>
+        </div>
+    `;
+    document.body.appendChild(videoModal);
+
+    const repVideo = document.getElementById('reproductor-video');
+    const btnCerrarVideo = document.getElementById('cerrar-video');
+
+    const abrirVideo = (url, color) => {
+        repVideo.src = url;
+        videoModal.style.setProperty('--color-modal-actual', color);
+        videoModal.classList.remove('modal-oculta');
+        videoModal.classList.add('modal-visible');
+        repVideo.play(); 
+    };
+
+    const cerrarVideo = () => {
+        videoModal.classList.remove('modal-visible');
+        videoModal.classList.add('modal-oculta');
+        repVideo.pause(); 
+        repVideo.src = ""; 
+    };
+
+    btnCerrarVideo.addEventListener('click', cerrarVideo);
+    videoModal.addEventListener('click', (evento) => {
+        if (evento.target === videoModal) cerrarVideo();
+    });
+
     // --- MODAL PRINCIPAL ---
     const abrirModal = (projectId) => {
         const datos = proyectosData[projectId];
@@ -93,6 +128,7 @@ export const inicializarModales = () => {
 
         const textoDemo = idiomaActual === 'es' ? 'Ver Video ↗' : 'Watch Video ↗';
 
+        // INYECCIÓN HTML
         modalCuerpo.innerHTML = `
             <h3>${datos.titulo}</h3>
             <p>${datos.descripcionLarga[idiomaActual]}</p>
@@ -102,7 +138,7 @@ export const inicializarModales = () => {
             <ul>${htmlTags}</ul>
             
             <div class="modal-botones">
-                <a href="${datos.demoUrl}" target="_blank">${textoDemo}</a>
+                <a href="#" id="btn-ver-video">${textoDemo}</a>
                 <a href="${datos.githubUrl}" target="_blank">GitHub ↗</a>
             </div>
         `;
@@ -111,6 +147,18 @@ export const inicializarModales = () => {
         modal.classList.add('modal-visible');
         document.body.style.overflow = 'hidden';
 
+        // LOGICA CLICK BOTON VIDEO
+        const btnVerVideo = document.getElementById('btn-ver-video');
+        btnVerVideo.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            if (datos.demoUrl && datos.demoUrl !== "#") {
+                abrirVideo(datos.demoUrl, datos.color);
+            } else {
+                alert(idiomaActual === 'es' ? "Vídeo no disponible aún." : "Video not available yet.");
+            }
+        });
+
+        // --- CARRUSEL ---
         if (datos.capturas && datos.capturas.length > 0) {
             let indiceActual = 0;
             const slidesDOM = modalCuerpo.querySelectorAll('.coverflow-slide');
@@ -188,9 +236,21 @@ export const inicializarModales = () => {
     };
 
     tarjetasProyectos.forEach(tarjeta => {
-        tarjeta.addEventListener('click', () => {
+        tarjeta.addEventListener('click', (e) => {
             const idProyecto = tarjeta.getAttribute('data-id');
-            abrirModal(idProyecto);
+            const datos = proyectosData[idProyecto];
+            
+            if (e.target.classList.contains('btn-abrir-video')) {
+                e.preventDefault();
+                e.stopPropagation(); 
+                if (datos.demoUrl && datos.demoUrl !== "#") {
+                    abrirVideo(datos.demoUrl, datos.color);
+                } else {
+                    alert(idiomaActual === 'es' ? "Vídeo no disponible aún." : "Video not available yet.");
+                }
+            } else if (e.target.tagName !== 'A') { 
+                abrirModal(idProyecto);
+            }
         });
     });
 
@@ -200,9 +260,12 @@ export const inicializarModales = () => {
         if (evento.target === modal) cerrarModal();
     });
 
+    // TECLADO (ESC)
     document.addEventListener('keydown', (evento) => {
         if (evento.key === 'Escape') {
-            if (zoomModal.classList.contains('modal-visible')) {
+            if (videoModal.classList.contains('modal-visible')) {
+                cerrarVideo();
+            } else if (zoomModal.classList.contains('modal-visible')) {
                 cerrarZoom();
             } else if (modal.classList.contains('modal-visible')) {
                 cerrarModal();
