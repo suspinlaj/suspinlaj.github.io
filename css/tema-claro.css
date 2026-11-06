@@ -149,3 +149,30 @@ body.tema-claro .gif-oscuro {
 body.tema-claro .gif-claro {
     display: block !important;
 }
+
+/* Suma #cerrar-video a la lista de botones */
+body.tema-claro .slider-btn,
+body.tema-claro #cerrar-modal,
+body.tema-claro #cerrar-zoom,
+body.tema-claro #cerrar-video,
+body.tema-claro .zoom-btn {
+    border-color: var(--color-texto) !important; 
+    color: var(--color-texto) !important; 
+    box-shadow: 2px 2px 0px var(--color-texto) !important;
+}
+
+body.tema-claro .slider-btn:hover,
+body.tema-claro #cerrar-modal:hover,
+body.tema-claro #cerrar-zoom:hover,
+body.tema-claro #cerrar-video:hover,
+body.tema-claro .zoom-btn:hover {
+    background-color: var(--color-texto) !important;
+    color: var(--color-fondo) !important;
+    box-shadow: 0px 0px 0px transparent !important;
+}
+
+/* Suma el reproductor de video para que el borde se vuelva oscuro en modo claro */
+body.tema-claro #img-zoom,
+body.tema-claro #reproductor-video {
+    border-color: var(--color-texto) !important;
+}
